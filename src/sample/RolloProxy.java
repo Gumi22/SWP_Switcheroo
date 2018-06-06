@@ -4,6 +4,7 @@ import javafx.util.Callback;
 import org.eclipse.paho.client.mqttv3.*;
 
 public class RolloProxy implements Rollo, MqttCallback {
+    //RolloProxy simuliert die RolloImpl und ist gleichzeitig Observer vom MQTT Server
 
     private MQTTConfig conf;
     private MqttClient client;
@@ -45,7 +46,7 @@ public class RolloProxy implements Rollo, MqttCallback {
     }
 
     @Override
-    public void setCallback(Callback cb) {
+    public void setFinishedMovingCallback(Callback cb) {
         this.cb = cb;
     }
 

@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
+    //Controller ist Observer vom Proxy und die Schnittstelle für den Clienten
 
     public Button upBtn;
     public Button downBtn;
@@ -22,7 +22,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         rp = new RolloProxy();
         status.textProperty().bind(new SimpleStringProperty(rp.getStatus()));
-        rp.setCallback( r -> {
+        rp.setFinishedMovingCallback(r -> {
             //Using platform.runlater to avoid java.lang.IllegalStateException “Not on FX application thread”:
             Platform.runLater(
                     () -> {

@@ -11,6 +11,6 @@ public interface Rollo {
 
     String getStatus();
 
-    void setCallback(Callback cb);
+    void setFinishedMovingCallback(Callback cb);
 
 }

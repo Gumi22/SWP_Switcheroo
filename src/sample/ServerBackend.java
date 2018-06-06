@@ -5,6 +5,7 @@ import org.eclipse.paho.client.mqttv3.*;
 import java.util.Objects;
 
 public class ServerBackend implements MqttCallback{
+    //Server Backend ist Observer von MQTT Server als auch von der RolloImplementierung
 
     private MQTTConfig conf;
     private MqttClient client;
@@ -14,7 +15,7 @@ public class ServerBackend implements MqttCallback{
         conf = new MQTTConfig();
         rollo = new RolloImpl();
 
-        rollo.setCallback( r -> {
+        rollo.setFinishedMovingCallback(r -> {
             Rollo ro = (Rollo)r;
             if(Objects.equals(ro.getStatus(), "0") ){
                 sendMessage();

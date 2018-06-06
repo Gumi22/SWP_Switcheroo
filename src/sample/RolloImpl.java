@@ -8,6 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class RolloImpl implements Rollo{
+    //Rollo ist die tatsächliche Implementierung des Interfaces Rollo
+    //      und ist selbst ein Beobachter für Asynchrone Task die sie selber ausführt
 
     private double delta = 0;
     private double status = 0.5;
@@ -89,7 +91,7 @@ public class RolloImpl implements Rollo{
     }
 
     @Override
-    public void setCallback(Callback cb) {
+    public void setFinishedMovingCallback(Callback cb) {
         this.cb = cb;
     }
 
